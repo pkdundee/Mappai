@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mappai | Strategy. Creative. Growth.</title>
+  <meta name="description" content="Mappai is a mobile growth consultancy for apps and games, supporting growth strategy, performance marketing, creative services, ASO, monetisation and AI-assisted reporting." />
+  <style>
+    :root {
+      --bg: #050607;
+      --bg-2: #0b0d10;
+      --ink: #f4f6f8;
+      --muted: #a5adb8;
+      --card: #111418;
+      --line: #252b33;
+      --accent: #B6FF00;
+      --accent-2: #CCFF00;
+      --soft: #171c22;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1160px, calc(100% - 36px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5, 6, 7, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(37, 43, 51, 0.95);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 10px 0;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .logo strong {
+      font-size: 32px;
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .logo-app { color: #b8bec7; }
+    .logo-subtitle {
+      margin-top: 7px;
+      font-size: 12px;
+      color: #b8bec7;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 8px; }
+    nav li { position: relative; }
+    nav a, .dropbtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #d7dde5;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    nav a:hover, .dropbtn:hover { background: var(--soft); color: var(--accent); }
+    .dropdown {
+      position: absolute;
+      top: 44px;
+      left: 0;
+      min-width: 280px;
+      background: #0e1116;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 10px;
+      display: none;
+    }
+    nav li:hover .dropdown { display: block; }
+    .dropdown a { display: block; padding: 10px 12px; border-radius: 12px; white-space: nowrap; }
+    .dropdown a:hover { background: #151a21; color: var(--accent); }
+    .cta { background: #f4f6f8 !important; color: #050607 !important; padding: 11px 16px !important; }
+
+    section { padding: 72px 0; scroll-margin-top: 96px; }
+    section:nth-of-type(even) { background: var(--bg-2); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 88px 0 54px;
+      background: radial-gradient(circle at 20% 20%, rgba(182,255,0,.10), transparent 32%),
+                  radial-gradient(circle at 82% 18%, rgba(255,255,255,.06), transparent 34%),
+                  linear-gradient(180deg, #050607 0%, #0b0d10 100%);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 38px; align-items: center; }
+    h1 { font-size: clamp(42px, 6vw, 74px); line-height: .98; margin: 0 0 22px; letter-spacing: -0.065em; color: var(--ink); }
+    .lead { font-size: clamp(18px, 2vw, 22px); color: #c0c8d2; max-width: 720px; margin: 0 0 28px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .button { display:inline-flex; justify-content:center; align-items:center; padding: 14px 18px; border-radius: 14px; font-weight: 800; border: 1px solid var(--line); background: #15191f; color: var(--ink); box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+    .button.primary { background: var(--accent); color: #050607; border-color: var(--accent); }
+    .button:hover { transform: translateY(-1px); }
+
+    .hero-card { background: #0e1116; color: #fff; border: 1px solid var(--line); border-radius: 28px; padding: 28px; box-shadow: var(--shadow); }
+    .metric { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.10); }
+    .metric:last-child { border-bottom: 0; }
+    .metric b { font-size: 34px; letter-spacing: -0.04em; color: #fff; }
+    .metric span { color: #aeb8c6; }
+
+    .section-head { max-width: 760px; margin-bottom: 30px; }
+    .kicker { color: var(--accent); text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 900; margin-bottom: 10px; }
+    h2 { margin: 0 0 12px; font-size: clamp(30px, 4vw, 46px); line-height: 1.05; letter-spacing: -0.05em; color: var(--ink); }
+    h3 { margin: 0 0 10px; color: var(--ink); font-size: 22px; letter-spacing: -0.025em; }
+    p { margin: 0 0 16px; color: var(--muted); }
+
+    .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: start; }
+    .panel { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 30px; box-shadow: var(--shadow); }
+    .pill-list { display:flex; flex-wrap:wrap; gap: 10px; margin-top: 18px; }
+    .pill { padding: 9px 12px; border-radius: 999px; background: #191f27; color: #dce3eb; border: 1px solid var(--line); font-weight: 800; font-size: 13px; }
+
+    .services-list { display: grid; gap: 14px; }
+    .service-row {
+      position: relative;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .service-content-anchor {
+      display: block;
+      position: relative;
+      top: -104px;
+      visibility: hidden;
+      height: 0;
+      width: 0;
+    }
+    .service-row h3 { margin-top: 0; }
+    .service-row p { margin-bottom: 0; }
+    .service-row ul { margin: 12px 0 0; padding-left: 18px; color: #c2cad4; columns: 2; }
+
+    .case-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .case { padding: 18px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
+    .case b { display: block; font-size: 18px; margin-bottom: 6px; color: var(--ink); }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+    .contact-form { display: grid; gap: 14px; margin-top: 18px; }
+    .form-field { display: grid; gap: 7px; }
+    .form-field label {
+      font-size: 13px;
+      font-weight: 900;
+      color: #d8dee7;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #0b0f14;
+      color: var(--ink);
+      padding: 14px 14px;
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(182,255,0,.10);
+    }
+    .contact-form textarea { min-height: 130px; resize: vertical; }
+    .contact-form button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: fit-content;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #050607;
+      font-weight: 900;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .contact-form button:disabled { opacity: .7; cursor: wait; }
+    .form-status {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #b8c1cc;
+      min-height: 22px;
+    }
+    .form-status.success { color: var(--accent); }
+    .form-status.error { color: #ff8a8a; }
+    footer { padding: 36px 0; border-top: 1px solid var(--line); color: var(--muted); background: #050607; }
+    footer .foot { display:flex; justify-content:space-between; gap: 18px; align-items:center; flex-wrap: wrap; }
+    footer a { color: #c2cad4; font-weight: 700; margin-left: 14px; }
+    .legal { padding-top: 0; }
+    details { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 22px; margin-bottom: 12px; }
+    summary { font-weight: 900; color: var(--ink); cursor: pointer; }
+
+    @media (max-width: 860px) {
+      .nav { min-height: 70px; }
+      .hero-grid, .split, .service-row { grid-template-columns: 1fr; }
+      .case-strip { grid-template-columns: 1fr; }
+      .service-row ul { columns: 1; }
+      nav ul { display: none; }
+      .logo strong { font-size: 30px; }
+      .logo-subtitle { font-size: 10px; white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#top" aria-label="Mappai home">
+        <strong>M<span class="logo-app">app</span>ai</strong>
+        <span class="logo-subtitle">Mobile growth consultancy for apps and games</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li>
+            <a class="dropbtn" href="#services" aria-haspopup="true">Services ▾</a>
+            <div class="dropdown" role="menu">
+              <a href="#strategy">Growth Strategy</a>
+              <a href="#media">Performance Marketing</a>
+              <a href="#creative">Creative Services</a>
+              <a href="#ai">Analytics & Reporting</a>
+              <a href="#aso">App Store Optimisation</a>
+              <a href="#monetisation">Monetisation & ROAS</a>
+            </div>
+          </li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact" class="cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>Strategy. Creative. Growth.</h1>
+          <p class="lead">Mappai helps apps, games and digital products scale more efficiently through senior growth strategy, performance marketing, creative services, monetisation support and AI-enhanced workflows.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">Start a conversation</a>
+            <a class="button" href="#services">Explore services</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Mappai focus areas">
+          <div class="metric"><span>UA strategy across Meta, Google, TikTok, AppLovin, Unity and leading performance networks</span><b>01</b></div>
+          <div class="metric"><span>Creative services systems for ideation, concepts, iterations and delivery</span><b>02</b></div>
+          <div class="metric"><span>AI-supported reporting, dashboards and decision workflows</span><b>03</b></div>
+          <div class="metric"><span>ROAS, payback, ASO and monetisation optimisation</span><b>04</b></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Services</div>
+          <h2>Senior growth support without the agency bloat.</h2>
+          <p>Mappai is built for founders, studios and app teams that need experienced hands on growth strategy, campaign execution, creative direction and performance analysis.</p>
+        </div>
+        <div class="services-list">
+          <article class="service-row">
+            <h3>Growth Strategy</h3>
+            <div><span id="strategy" class="service-content-anchor"></span><p>Clear planning around channels, budgets, measurement, payback and the experiments most likely to move performance.</p><ul><li>UA and go-to-market plans</li><li>Budget and ROAS modelling</li><li>Testing roadmaps</li><li>Team and partner workflows</li></ul></div>
+          </article>
+          <article class="service-row">
+            <h3>Performance Marketing</h3>
+            <div><span id="media" class="service-content-anchor"></span><p>Hands-on or advisory support across the major mobile growth channels, with a focus on sustainable scale rather than surface-level metrics.</p><ul><li>Meta Ads</li><li>Google App Campaigns</li><li>TikTok</li><li>Apple Search Ads</li><li>AppLovin and ad networks</li><li>Campaign audits</li></ul></div>
+          </article>
+          <article class="service-row">
+            <h3>Creative Services</h3>
+            <div><span id="creative" class="service-content-anchor"></span><p>Creative strategy, ideation, concept development, briefing, production and optimisation support designed to turn better ideas into stronger performance assets.</p><ul><li>Creative strategy and concept development</li><li>Creative briefs and production planning</li><li>UGC, creator and vendor management</li><li>Video, motion and ad creative delivery</li><li>Creative testing and optimisation where required</li></ul></div>
+          </article>
+          <article class="service-row">
+            <h3>Analytics & Reporting</h3>
+            <div><span id="ai" class="service-content-anchor"></span><p>Practical AI-assisted workflows that turn messy campaign exports, creative data and performance notes into clearer decisions and faster operating rhythms.</p><ul><li>Creative performance dashboards</li><li>Automated reporting workflows</li><li>Analysis templates</li><li>AI-assisted briefs and insight packs</li><li>Decision frameworks for growth teams</li></ul></div>
+          </article>
+          <article class="service-row">
+            <h3>App Store Optimisation</h3>
+            <div><span id="aso" class="service-content-anchor"></span><p>Store page and conversion improvements across app positioning, screenshots, messaging, keyword priorities and test planning.</p><ul><li>Store audits</li><li>Keyword and competitor reviews</li><li>Screenshot and video recommendations</li><li>Product page testing</li></ul></div>
+          </article>
+          <article class="service-row">
+            <h3>Monetisation & ROAS</h3>
+            <div><span id="monetisation" class="service-content-anchor"></span><p>Support for the commercial mechanics behind growth, including LTV, payback, ad monetisation and campaign-level profitability.</p><ul><li>LTV and cohort analysis</li><li>ROAS thresholds</li><li>Ad monetisation reviews</li><li>Payback planning</li><li>Scaling guardrails</li></ul></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Work</div>
+          <h2>Built around the work that actually improves app growth.</h2>
+          <p>Mappai combines senior operator-level mobile growth experience with modern AI-assisted reporting and creative workflows.</p>
+          <p>Much of the work happens behind the scenes. Mappai works selectively with apps, games and digital product teams, often through private introductions and word-of-mouth referrals. Client work is generally kept confidential, allowing Mappai to support teams as a trusted growth partner without publicly disclosing strategy, performance data or commercial details.</p>
+        </div>
+        <div class="case-strip">
+          <div class="case"><b>Launch & scale</b><p>Plan the channel mix, testing cadence and spend guardrails for new app or game launches.</p></div>
+          <div class="case"><b>Creative systems</b><p>Build a repeatable creative pipeline across concepts, hooks, variants and learnings.</p></div>
+          <div class="case"><b>Performance reviews</b><p>Translate campaign data into clear actions for founders, boards and growth teams.</p></div>
+          <div class="case"><b>AI workflows</b><p>Use AI to speed up analysis, reporting, briefing and decision-making without losing human judgement.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap split">
+        <div class="section-head">
+          <div class="kicker">About</div>
+          <h2>Experienced mobile growth support, shaped for modern app teams.</h2>
+        </div>
+        <div class="panel">
+          <p>Mappai brings senior operator-level growth experience across mobile games, apps, user acquisition, creative services and monetisation.</p>
+          <p>The consultancy is designed to be practical, senior and hands-on where needed: giving founders, studios and app teams access to experienced growth leadership without adding permanent headcount or agency overhead.</p>
+          <div class="pill-list">
+            <span class="pill">Mobile games</span><span class="pill">Apps</span><span class="pill">User acquisition</span><span class="pill">Creative strategy</span><span class="pill">AI reporting</span><span class="pill">ASO</span><span class="pill">ROAS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap split">
+        <div class="section-head">
+          <div class="kicker">Contact</div>
+          <h2>Tell Mappai what you are trying to grow.</h2>
+          <p>Share a few details about the app, game or growth challenge and Mappai will get back to you.</p>
+        </div>
+        <div class="contact-card" aria-label="Contact form">
+          <h3>Contact Mappai</h3>
+          <p>Use the form below for consultancy, growth strategy, creative services or performance marketing enquiries.</p>
+          <form id="mappai-contact-form" class="contact-form">
+            <div class="form-field">
+              <label for="from_name">Name</label>
+              <input id="from_name" name="from_name" type="text" autocomplete="name" required />
+            </div>
+            <div class="form-field">
+              <label for="from_email">Email</label>
+              <input id="from_email" name="from_email" type="email" autocomplete="email" required />
+            </div>
+            <div class="form-field">
+              <label for="company">Company / App / Game</label>
+              <input id="company" name="company" type="text" autocomplete="organization" />
+            </div>
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <input type="hidden" id="time" name="time" />
+            <button id="contact-submit" type="submit">Send message</button>
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="legal" class="legal">
+      <div class="wrap">
+        <details>
+          <summary>Privacy Policy</summary>
+          <p>Last updated: June 2026</p>
+          <p>Mappai collects personal information submitted through the contact form, such as name, email address, telephone number and message content, for the purpose of responding to enquiries and providing consultancy services.</p>
+          <p>Information is not sold. It may be shared with service providers where necessary to operate the website, manage email or deliver services. You may request access, correction or deletion of your personal data by contacting Mappai.</p>
+          <p>This website may use basic analytics or cookies if enabled in future. Any material tracking should be disclosed here before launch.</p>
+        </details>
+        <details>
+          <summary>Terms of Service</summary>
+          <p>Last updated: June 2026</p>
+          <p>The content on mappai.co is provided for general information about Mappai’s consultancy services. It does not create a client relationship unless agreed separately in writing.</p>
+          <p>All website content, branding and materials are owned by Mappai unless otherwise stated. You may not copy or reuse content without permission.</p>
+          <p>These terms should be reviewed before launch to ensure they reflect the final company entity, jurisdiction and commercial terms.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© 2026 Mappai. Strategy. Creative. Growth.</div>
+      <div><a href="#legal">Privacy Policy</a><a href="#legal">Terms of Service</a><a href="#contact">Contact</a></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init({ publicKey: "rsCPvBGa0u_VK33LM" });
+
+      const form = document.getElementById("mappai-contact-form");
+      const status = document.getElementById("form-status");
+      const submit = document.getElementById("contact-submit");
+      const timeField = document.getElementById("time");
+
+      if (!form) return;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        timeField.value = new Date().toLocaleString("en-GB", {
+          dateStyle: "medium",
+          timeStyle: "short"
+        });
+
+        status.textContent = "Sending...";
+        status.className = "form-status";
+        submit.disabled = true;
+
+        emailjs.sendForm("service_l758yii", "template_yxmdz2i", form)
+          .then(function () {
+            status.textContent = "Thanks — your message has been sent.";
+            status.className = "form-status success";
+            form.reset();
+          })
+          .catch(function () {
+            status.textContent = "Sorry, something went wrong. Please try again or email pat@mappai.co.";
+            status.className = "form-status error";
+          })
+          .finally(function () {
+            submit.disabled = false;
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
