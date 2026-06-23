@@ -243,60 +243,39 @@
       .logo strong { font-size: 30px; }
       .logo-subtitle { font-size: 10px; white-space: normal; }
     }
-footer{
-    border-top:1px solid var(--line);
-    margin-top:80px;
-}
-
-.foot{
-    display:grid;
-    grid-template-columns:160px 1fr auto;
-    gap:36px;
-    align-items:center;
-    padding:36px 0;
-}
-.footer-logo img{
-    width:140px;
-    height:auto;
-    display:block;
-}
-
-.footer-copy{
-    color:var(--muted);
-}
-.footer-links{
-    display:flex;
-    gap:22px;
-    justify-content:flex-end;
-    flex-wrap:wrap;
-}
-.footer-links a{
-    margin:0;
-    font-weight:700;
-}
-.footer-legal{
-    grid-column:1 / -1;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-    margin-top:20px;
-}
-.footer-legal details{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:18px 22px;
-}
-
-.footer-legal summary{
-    cursor:pointer;
-    font-weight:700;
-}
-.legal-content{
-    padding-top:14px;
-    color:var(--muted);
-    line-height:1.7;
-}
+    footer{
+        border-top:1px solid var(--line);
+        margin-top:80px;
+    }
+    .foot{
+        display:flex;
+        align-items:center;
+        gap:30px;
+        padding:32px 0;
+    }
+    .footer-logo img{
+        width:140px;
+        height:auto;
+        display:block;
+    }
+    .footer-copy{
+        color:var(--muted);
+    }
+    .legal details{
+        background:var(--card);
+        border:1px solid var(--line);
+        border-radius:var(--radius);
+        padding:18px 22px;
+        margin-bottom:16px;
+    }
+    .legal summary{
+        cursor:pointer;
+        font-weight:700;
+    }
+    .legal p{
+        color:var(--muted);
+        line-height:1.7;
+    }
   </style>
 </head>
 <body>
@@ -452,6 +431,31 @@ footer{
     </section>
 
 </main>
+<section id="legal" class="legal">
+  <div class="wrap">
+
+```
+<details>
+  <summary>Privacy Policy</summary>
+  <p><strong>Last updated:</strong> June 2026</p>
+  <p>Mappai collects personal information submitted through the contact form, including name, email address, telephone number and message content, for the purpose of responding to enquiries and providing consultancy services.</p>
+  <p>Information is not sold or shared for marketing purposes. Information may be shared with trusted service providers where necessary to operate the website, manage communications or deliver services.</p>
+  <p>You may request access to, correction of, or deletion of your personal information by contacting Mappai.</p>
+  <p>This website may use analytics, cookies or similar technologies to improve performance and user experience.</p>
+</details>
+
+<details>
+  <summary>Terms of Service</summary>
+  <p><strong>Last updated:</strong> June 2026</p>
+  <p>The content on mappai.co is provided for general information regarding Mappai's consultancy services and does not constitute professional advice.</p>
+  <p>No client relationship is created through use of this website unless agreed separately in writing.</p>
+  <p>All branding, content, reports, frameworks and materials displayed on this website remain the property of Mappai unless otherwise stated.</p>
+  <p>These terms should be reviewed and updated to reflect the final legal entity and jurisdiction before launch.</p>
+</details>
+```
+
+  </div>
+</section>
 
 <footer>
   <div class="wrap foot">
@@ -462,38 +466,6 @@ footer{
 
     <div class="footer-copy">
       © 2026 Mappai. Strategy. Creative. Growth.
-    </div>
-
-    <div class="footer-links">
-      <a href="#privacy">Privacy Policy</a>
-      <a href="#terms">Terms of Service</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-    <div class="footer-legal">
-
-      <details id="privacy">
-        <summary>Privacy Policy</summary>
-        <div class="legal-content">
-          <p><strong>Last updated:</strong> June 2026</p>
-          <p>Mappai collects personal information submitted through the contact form, including name, email address, telephone number and message content, for the purpose of responding to enquiries and providing consultancy services.</p>
-          <p>Information is not sold or shared for marketing purposes. Information may be shared with trusted service providers where necessary to operate the website, manage communications or deliver services.</p>
-          <p>You may request access to, correction of, or deletion of your personal information by contacting Mappai.</p>
-          <p>This website may use analytics, cookies or similar technologies to improve performance and user experience.</p>
-        </div>
-      </details>
-
-      <details id="terms">
-        <summary>Terms of Service</summary>
-        <div class="legal-content">
-          <p><strong>Last updated:</strong> June 2026</p>
-          <p>The content on mappai.co is provided for general information regarding Mappai's consultancy services and does not constitute professional advice.</p>
-          <p>No client relationship is created through use of this website unless agreed separately in writing.</p>
-          <p>All branding, content, reports, frameworks and materials displayed on this website remain the property of Mappai unless otherwise stated.</p>
-          <p>These terms should be reviewed and updated to reflect the final legal entity and jurisdiction before launch.</p>
-        </div>
-      </details>
-
     </div>
 
   </div>
